@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <head>
-    <link href="https://fonts.googleapis.com/css?family=Bungee|Open+Sans:300,400,600" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="manifest" href="favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
 </head>
 
 <style>
@@ -18,7 +35,9 @@
         font-weight: 300;
     }
 
-    body {
+    .background {
+        width: 100%;
+        min-height: 100%;
         background: #785FC9; /* For browsers that do not support gradients */
         background: -webkit-linear-gradient(#785FC9, #C5B5FA); /* For Safari 5.1 to 6.0 */
         background: -o-linear-gradient(#785FC9, #C5B5FA); /* For Opera 11.1 to 12.0 */
@@ -26,6 +45,16 @@
         background: linear-gradient(#785FC9, #C5B5FA); /* Standard syntax */
         background-repeat: no-repeat;
         background-size: cover;
+    }
+
+    a {
+        color: unset;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
     .test {
@@ -38,7 +67,7 @@
         position: absolute;
         top: 30%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-40%,-50%);
         width: fit-content;
         height: fit-content;
     }
@@ -51,27 +80,84 @@
         position: relative;
         padding: 0;
         top: 50%;
+        width: fit-content;
         font-size: 200px;
     }
 
     .circle div::before {
         position: absolute;
         content: '';
-        left: -100px;
         border: 8px solid #E1F3F4;
         border-radius: 300px;
         width: 300px;
         height: 300px;
     }
+
+    .circle,.skewed div::before {
+        left: -100px;
+    }
+
+    .static-descriptor {
+        position: fixed;
+        left: 150px;
+        top: 50px;
+        width: 400px;
+        border: 3px solid #E1F3F4;
+        font-size: 30px;
+    }
+
+    .descriptor {
+        padding: 20px 10px;
+    }
+
+    .descriptor b {
+        font-weight: 600;
+    }
+
+    .menu-bar {
+        width: fit-content;
+        position:absolute;
+        right: 100px;
+    }
+
+    .menu-link {
+        float: left;
+        padding: 10px;
+        margin: 10px;
+        margin-left: 20px;
+        font-weight: 600;
+        cursor: pointer;
+    }
 </style>
 
 <body>
-    <div class="name-container">
-        <div class="circle">
-            <div>JL</div>
-        </div>
+    <div class="background">
+            <div class="menu-bar">
+                <a href="#" class="menu-link">Hey</a>
+                <a href="#" class="menu-link">BG</a>
+                <a href="#" class="menu-link">Talk</a>
+            </div>
+            <div class="static-descriptor">
+                <div class="descriptor">
+                    Hey, my name is <b>John</b> and I'm currently a full stack engineer at <a href="https://expensify.com">Expensify</a>.
+                </div>
+            </div>
+            <div class="name-container">
+                <div class="circle skewed">
+                    <div>JL</div>
+                </div>
+            </div>
     </div>
+
+
+    <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 </body>
 
-<script></script>
+<script>
+    // JavaScript
+    window.sr = ScrollReveal();
+    sr.reveal('.static-descriptor');
+    sr.reveal('.popup');
+
+</script>
 </html>
